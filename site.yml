@@ -10,27 +10,27 @@
   hosts: all
   tasks: []
 
-- name: Base infrastructure
-  hosts: all
-  roles:
-    - {role: vagrant, when: "ansible_env['SUDO_USER'] | default('') == 'vagrant'"}
+#- name: Base infrastructure
+#  hosts: all
+#  roles:
+#    - {role: vagrant, when: "ansible_env['SUDO_USER'] | default('') == 'vagrant'"}
 
-- name: gridftp servers
-  hosts: localhost #gridftp-servers
-  roles:
-    - {role: gridftp, gridftp_mode: server}
+#- name: gridftp servers
+#  hosts: localhost #gridftp-servers
+#  roles:
+#    - {role: gridftp, gridftp_mode: server}
 
-- name: gridftp clients
-  hosts: gridftp-clients
-  roles:
-    - {role: gridftp, gridftp_mode: client}
+#- name: gridftp clients
+#  hosts: gridftp-clients
+#  roles:
+#    - {role: gridftp, gridftp_mode: client}
 
-- name: simpleca servers
-  hosts: localhost #gridftp-servers
-  roles:
-    - {role: simpleca, simpleca_mode: server}
+#- name: simpleca servers
+#  hosts: localhost #gridftp-servers
+#  roles:
+#    - {role: simpleca, simpleca_mode: server}
 
-- name: simpleca clients
-  hosts: gridftp-clients
-  roles:
-    - {role: simpleca, simpleca_mode: client}
+#- name: simpleca clients
+#  hosts: gridftp-clients
+#  roles:
+#    - {role: simpleca, simpleca_mode: client}

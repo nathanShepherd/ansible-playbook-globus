@@ -1,2 +1,2 @@
-[gridftp-servers]
-localhost
+[gridftp_servers]
+10.1.1.1

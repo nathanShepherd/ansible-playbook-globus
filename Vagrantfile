@@ -11,8 +11,8 @@ Vagrant.configure(2) do |config|
         vb.cpus = 2
         vb.memory = 1024
     end
-    box.vm.network "private_network", ip: "192.168.77.11"
-    box.vm.hostname = "gridftp-server.local"
+    box.vm.network "private_network", ip: "10.1.1.1"
+    box.vm.hostname = "globus_server"
   end
 
   config.vm.define "gridftp-client.local" do |box|
@@ -20,16 +20,16 @@ Vagrant.configure(2) do |config|
         vb.cpus = 2
         vb.memory = 1024
     end
-    box.vm.network "private_network", ip: "192.168.77.12"
-    box.vm.hostname = "gridftp-client.local"
+    box.vm.network "private_network", ip: "10.1.1.2"
+    box.vm.hostname = "globus_client"
 
     box.vm.provision "ansible" do |ansible|
       ansible.playbook = "site.yml"
       ansible.limit = "all"
 
       ansible.groups = {
-        "gridftp-servers" => ["gridftp-server.local"],
-        "gridftp-clients" => ["gridftp-client.local"]
+        "globus_servers" => ["globus_server"],
+        "globus_clients" => ["globus_client"]
       }
 
       ansible.sudo = true
