@@ -10,13 +10,18 @@
   hosts: all
   tasks: []
 
-#- name: Base infrastructure
-#  hosts: all
-#  roles:
-#    - {role: vagrant, when: "ansible_env['SUDO_USER'] | default('') == 'vagrant'"}
+- name: Intialize Vagrant Hosts
+  hosts: all
+  roles:
+    - {role: vagrant, when: "ansible_env['SUDO_USER'] | default('') == 'vagrant'"}
 
-#- name: gridftp servers
-#  hosts: localhost #gridftp-servers
+#- name: Install Globus CLI
+#  become: yes
+#  become_method: sudo
+#  hosts: globus-servers
+#  tasks:
+#  - name: pip install globus-cli
+#    command: pip install globus-cli
 #  roles:
 #    - {role: gridftp, gridftp_mode: server}
 

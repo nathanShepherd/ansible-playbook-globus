@@ -1,0 +1,16 @@
+---
+- name: Configure hosts file
+  template: dest=/etc/hosts src=hosts.j2
+
+- name: Add epel repository
+  yum: name='https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' state=present
+
+- name: Install Python2
+  yum: name=python state=latest
+
+- name: Install Python2-pip
+  yum: name=python-pip state=latest
+
+- name: pip install globus
+  pip:
+    name: globus-cli
