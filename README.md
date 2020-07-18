@@ -3,7 +3,8 @@
 ## Using playbook with Vagrant
 Install Vagrant and VirtualBox before starting.
 
-- Start the vagrant machines: `vagrant up
+Start the vagrant machines
+```vagrant up```
 
 Once each VM is configured, login to globus-cli
 ```
